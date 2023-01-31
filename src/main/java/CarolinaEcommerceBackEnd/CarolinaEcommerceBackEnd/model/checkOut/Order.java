@@ -2,7 +2,9 @@ package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -15,10 +17,7 @@ import java.util.List;
 
 @Entity
 @Table(name="orders")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+
 public class Order {
 
     @Id
@@ -50,8 +49,8 @@ public class Order {
     private Address shippingAddress;
 
     @OneToOne(cascade = CascadeType.ALL)
-
     @JoinColumn(name = "billing_address_id",referencedColumnName = "id")
+
     private Address billingAddress;
 
 
@@ -80,7 +79,7 @@ public class Order {
         this.shippingAddress = shippingAddress;
         this.billingAddress = billingAddress;
     }
-
+    @JsonManagedReference
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }
@@ -165,7 +164,7 @@ public class Order {
     public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
-
+    @JsonBackReference
     public Customer getCustomer() {
         return customer;
     }

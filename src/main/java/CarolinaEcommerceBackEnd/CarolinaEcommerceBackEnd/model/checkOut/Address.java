@@ -1,6 +1,7 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -8,10 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="address")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+
 public class Address {
 
     @Id
@@ -78,7 +76,7 @@ public class Address {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-
+    @JsonIgnore
     public Order getOrder() {
         return order;
     }

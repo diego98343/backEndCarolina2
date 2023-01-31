@@ -1,5 +1,6 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -8,10 +9,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name="order_item")
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+
 public class OrderItem {
 
     @Id
@@ -114,7 +112,7 @@ public class OrderItem {
     public void setProductId(Long productId) {
         this.productId = productId;
     }
-
+    @JsonBackReference
     public Order getOrder() {
         return order;
     }
