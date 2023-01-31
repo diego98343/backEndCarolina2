@@ -1,10 +1,17 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name="order_item")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 public class OrderItem {
 
     @Id
@@ -12,6 +19,11 @@ public class OrderItem {
     private int  id;
 
     private String imageUrl;
+
+
+    private String name;
+
+    private String reference;
 
     private BigDecimal unitPrice;
 
@@ -25,10 +37,10 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-
-    public OrderItem(int  id, String imageUrl, BigDecimal unitPrice, int quantity, String size, Long productId, Order order) {
+    public OrderItem(int id, String imageUrl, String name, BigDecimal unitPrice, int quantity, String size, Long productId, Order order) {
         this.id = id;
         this.imageUrl = imageUrl;
+        this.name = name;
         this.unitPrice = unitPrice;
         this.quantity = quantity;
         this.size = size;
@@ -39,6 +51,21 @@ public class OrderItem {
     public OrderItem() {
     }
 
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getSize() {
         return size;

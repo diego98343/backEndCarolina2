@@ -1,10 +1,9 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository;
 
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Customer;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer,Integer> {
-
+public interface OrderRepository extends JpaRepository<Order,Integer> {
 }
