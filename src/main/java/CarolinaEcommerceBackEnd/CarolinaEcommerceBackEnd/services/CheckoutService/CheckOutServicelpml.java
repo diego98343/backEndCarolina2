@@ -59,7 +59,7 @@ public class CheckOutServicelpml implements   CheckoutService {
 
 
     @Override
-    public List<Customer>getPurchaseOrders(){
+    public List<Customer>getAllCustomers(){
         return customerRepository.findAll();
     }
 

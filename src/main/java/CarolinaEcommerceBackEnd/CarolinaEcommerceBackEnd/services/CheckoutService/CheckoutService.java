@@ -9,5 +9,6 @@ import java.util.List;
 public interface CheckoutService {
 
     PurchaseResponse placeOrder(Purchase purchase);
-    List<Customer>getPurchaseOrders();
+    List<Customer>getAllCustomers();
+
 }

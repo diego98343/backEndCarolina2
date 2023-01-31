@@ -1,10 +1,16 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers.checkOutControllers;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Dto.Purchase;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Dto.PurchaseResponse;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Customer;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutService.CheckoutService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin("*")
 @RestController
@@ -28,10 +34,12 @@ public class CheckOutController {
         return  purchaseResponse;
   }
 
-//
-//   @GetMapping("/getPurchases")
-//    public
-//
+   @GetMapping("/customers")
+   public ResponseEntity<List<Customer>> getAllCustumers(){
+        List<Customer> allCustomer= checkoutService.getAllCustomers();
+        return new ResponseEntity<List<Customer>>(allCustomer,HttpStatus.OK);
+   }
+
 
 
 
