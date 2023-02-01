@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name="order_item")
-
 public class OrderItem {
 
     @Id
@@ -17,7 +16,6 @@ public class OrderItem {
     private int  id;
 
     private String imageUrl;
-
 
     private String name;
 
