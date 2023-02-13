@@ -1,5 +1,6 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers;
 
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ProductCategory;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServiceFile.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class ProductCategoryController {
@@ -22,6 +23,8 @@ public class ProductCategoryController {
        List<ProductCategory> categories= productCategoryService.findAll();
        return new ResponseEntity<List<ProductCategory>>(categories,HttpStatus.OK);
     }
+
+
 
     @PostMapping("/productCategories")
     public ResponseEntity<ProductCategory>save(@RequestBody ProductCategory productCategory){

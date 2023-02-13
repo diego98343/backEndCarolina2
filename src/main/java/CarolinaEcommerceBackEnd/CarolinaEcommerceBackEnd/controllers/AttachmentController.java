@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.List;
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200/")
 @RestController
 @RequestMapping("/api")
 public class AttachmentController {

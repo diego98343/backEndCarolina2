@@ -6,6 +6,7 @@ import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ProductCategory;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServiceFile.ProductCategoryService;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServiceFile.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ import java.util.Set;
 //
 
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200/")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -41,6 +42,14 @@ public class ProductController {
       List<Product> product= productService.findAll();
       return new ResponseEntity<List<Product>>(product, HttpStatus.OK);
     }
+
+    @GetMapping("/{field}")
+    private ResponseEntity<List<Product>> getProductWithSort(@PathVariable String field){
+        List<Product> allProducts= productService.findProductWithSorting(field);
+
+        return new ResponseEntity<List<Product>>(allProducts,HttpStatus.OK);
+    }
+
 
     @PostMapping("/products")
     public ResponseEntity<Product>save( @RequestBody Product product){

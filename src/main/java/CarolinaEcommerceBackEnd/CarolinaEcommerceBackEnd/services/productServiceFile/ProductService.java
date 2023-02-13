@@ -1,6 +1,7 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServiceFile;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -13,8 +14,7 @@ public interface ProductService {
     Product findById(int id);
 
     void delete(int id);
-
-//    List<Product>findProductsByCategoryId(int id);
+    List<Product> findProductWithSorting(String field);
 
 
 }

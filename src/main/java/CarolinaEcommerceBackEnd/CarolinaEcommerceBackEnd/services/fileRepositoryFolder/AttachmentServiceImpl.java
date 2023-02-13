@@ -29,10 +29,8 @@ public class AttachmentServiceImpl implements AttachmentService {
                         + fileName);
             }
 
-            Attachment attachment
-                    = new Attachment(fileName,
-                    file.getContentType(),
-                    file.getBytes());
+            Attachment attachment = new Attachment(fileName,file.getContentType(), file.getBytes());
+
             return attachmentRepository.save(attachment);
 
         } catch (Exception e) {

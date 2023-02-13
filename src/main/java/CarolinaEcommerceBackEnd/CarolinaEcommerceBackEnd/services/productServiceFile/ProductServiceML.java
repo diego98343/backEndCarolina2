@@ -3,6 +3,7 @@ package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServic
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,6 +43,11 @@ public class ProductServiceML implements ProductService {
     public void delete (int id){
         Product expense= findById(id);
         productRepository.delete(expense);
+    }
+
+    @Override
+    public List<Product> findProductWithSorting(String field){
+        return productRepository.findAll(Sort.by(Sort.Direction.ASC,field));
     }
 
 
