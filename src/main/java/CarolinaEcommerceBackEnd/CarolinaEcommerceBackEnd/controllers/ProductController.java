@@ -6,6 +6,7 @@ import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ProductCategory;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServiceFile.ProductCategoryService;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServiceFile.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -50,6 +51,11 @@ public class ProductController {
         return new ResponseEntity<List<Product>>(allProducts,HttpStatus.OK);
     }
 
+    @GetMapping("/products/pagination/{offset}/{pageSize}")
+    private ResponseEntity<Page<Product>> getProductWithPagination(@PathVariable int offset,@PathVariable int pageSize) {
+        Page<Product> allProducts = productService.findProductsWithPagination(offset, pageSize);
+        return new ResponseEntity<Page<Product>>(allProducts, HttpStatus.OK);
+    }
 
     @PostMapping("/products")
     public ResponseEntity<Product>save( @RequestBody Product product){
