@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ProductSearchRepository {
 
- List<Product> findByName(String productName
-                          );
+ List<Product> findByName(String productName);
+ List<Product> findByCategory(int productCategory);
 }

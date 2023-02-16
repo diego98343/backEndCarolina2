@@ -35,6 +35,9 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @Autowired
+    ProductRepository productRepository;
+
 
     @Autowired
     public ProductCategoryService productCategoryService;
@@ -56,6 +59,15 @@ public class ProductController {
 
     }
 
+    @GetMapping("/products/searchByCategory/{productCategory}")
+    public ResponseEntity<List<Product>>sortByCategory(@PathVariable("productCategory")int productCategory){
+
+        List<Product> products = productRepository.findByCategory(productCategory);
+
+        return  new ResponseEntity<List<Product>>(products,HttpStatus.OK);
+
+    }
+
     @GetMapping("/product/sortBy/{field}")
     private ResponseEntity<List<Product>> getProductWithSort(@PathVariable String field){
         List<Product> allProducts= productService.findProductWithSorting(field);
@@ -69,8 +81,9 @@ public class ProductController {
         return new ResponseEntity<Page<Product>>(allProducts, HttpStatus.OK);
     }
 
-    //custom repository query
 
+
+    //custom repository query
 
     @PostMapping("/products")
     public ResponseEntity<Product>save( @RequestBody Product product){
