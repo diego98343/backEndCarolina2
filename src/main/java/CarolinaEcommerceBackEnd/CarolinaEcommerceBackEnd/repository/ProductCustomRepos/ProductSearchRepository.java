@@ -1,0 +1,2 @@
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductCustomRepos;public interface ProductSearchRepository {
+}
