@@ -50,6 +50,7 @@ public class ProductController {
       return new ResponseEntity<List<Product>>(product, HttpStatus.OK);
     }
 
+    //find product by name controller
     @GetMapping("/products/searchByName/{productName}")
     public ResponseEntity<List<Product>>sortByname(@PathVariable("productName")String productName){
 
@@ -59,6 +60,16 @@ public class ProductController {
 
     }
 
+    @GetMapping("/products/searchByReference/{productReference}")
+    public ResponseEntity<List<Product>>searchProductByReference(@PathVariable("productReference")String productReference){
+
+        List<Product> products = productRepository.findByReference(productReference);
+
+        return  new ResponseEntity<List<Product>>(products,HttpStatus.OK);
+
+    }
+
+    //find product by category controller
     @GetMapping("/products/searchByCategory/{productCategory}")
     public ResponseEntity<List<Product>>sortByCategory(@PathVariable("productCategory")int productCategory){
 
@@ -68,6 +79,7 @@ public class ProductController {
 
     }
 
+    // sort product by give field from bigger to smaller
     @GetMapping("/product/sortBy/{field}")
     private ResponseEntity<List<Product>> getProductWithSort(@PathVariable String field){
         List<Product> allProducts= productService.findProductWithSorting(field);
@@ -75,12 +87,13 @@ public class ProductController {
         return new ResponseEntity<List<Product>>(allProducts,HttpStatus.OK);
     }
 
+    //get all products with pagination
+
     @GetMapping("/products/pagination/{offset}/{pageSize}")
     private ResponseEntity<Page<Product>> getProductWithPagination(@PathVariable int offset,@PathVariable int pageSize) {
         Page<Product> allProducts = productService.findProductsWithPagination(offset, pageSize);
         return new ResponseEntity<Page<Product>>(allProducts, HttpStatus.OK);
     }
-
 
 
     //custom repository query
