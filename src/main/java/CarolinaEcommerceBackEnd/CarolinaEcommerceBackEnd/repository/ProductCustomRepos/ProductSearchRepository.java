@@ -1,2 +1,11 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductCustomRepos;public interface ProductSearchRepository {
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductCustomRepos;
+
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
+
+import java.util.List;
+
+public interface ProductSearchRepository {
+
+ List<Product> findByName(String productName
+                          );
 }

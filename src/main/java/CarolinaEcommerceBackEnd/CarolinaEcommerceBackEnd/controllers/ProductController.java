@@ -3,6 +3,8 @@ package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Attachment;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ProductCategory;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductCustomRepos.ProductSearchRepository;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductRepository;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServiceFile.ProductCategoryService;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServiceFile.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +40,23 @@ public class ProductController {
     public ProductCategoryService productCategoryService;
 
 
+
     @GetMapping("/products")
     public ResponseEntity<List<Product>> get() {
       List<Product> product= productService.findAll();
       return new ResponseEntity<List<Product>>(product, HttpStatus.OK);
     }
 
-    @GetMapping("/{field}")
+    @GetMapping("/products/searchByName/{productName}")
+    public ResponseEntity<List<Product>>sortByname(@PathVariable("productName")String productName){
+
+        List<Product> productsByName = productService.findProductsByName(productName);
+
+        return  new ResponseEntity<List<Product>>(productsByName,HttpStatus.OK);
+
+    }
+
+    @GetMapping("/product/sortBy/{field}")
     private ResponseEntity<List<Product>> getProductWithSort(@PathVariable String field){
         List<Product> allProducts= productService.findProductWithSorting(field);
 
@@ -56,6 +68,9 @@ public class ProductController {
         Page<Product> allProducts = productService.findProductsWithPagination(offset, pageSize);
         return new ResponseEntity<Page<Product>>(allProducts, HttpStatus.OK);
     }
+
+    //custom repository query
+
 
     @PostMapping("/products")
     public ResponseEntity<Product>save( @RequestBody Product product){

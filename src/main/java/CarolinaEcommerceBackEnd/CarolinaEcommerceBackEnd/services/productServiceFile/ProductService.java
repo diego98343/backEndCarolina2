@@ -19,6 +19,8 @@ public interface ProductService {
 
      Page<Product> findProductsWithPagination(int offset, int pageSize);
 
+//     Page<Product> findProductsWithPaginationandSorting(int offset, int pageSize, String field);
+     List<Product> findProductsByName(String productName);
 }
 
 

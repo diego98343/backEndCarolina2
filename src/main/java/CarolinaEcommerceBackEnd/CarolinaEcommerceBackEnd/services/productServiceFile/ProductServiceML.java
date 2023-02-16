@@ -44,7 +44,6 @@ public class ProductServiceML implements ProductService {
         return null;
     }
 
-
     @Override
     public void delete (int id){
         Product expense= findById(id);
@@ -54,7 +53,9 @@ public class ProductServiceML implements ProductService {
     @Override
     public List<Product> findProductWithSorting(String field){
         return productRepository.findAll(Sort.by(Sort.Direction.ASC,field));
+
     }
+
 
     @Override
     public Page<Product> findProductsWithPagination(int offset,int pageSize){
@@ -62,6 +63,10 @@ public class ProductServiceML implements ProductService {
         return products;
     }
 
+    @Override
+    public List<Product> findProductsByName(String productName) {
+      return   productRepository.findByName(productName);
+    }
 
 
 }
