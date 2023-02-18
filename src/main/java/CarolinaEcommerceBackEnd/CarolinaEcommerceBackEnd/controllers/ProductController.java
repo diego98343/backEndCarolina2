@@ -80,7 +80,7 @@ public class ProductController {
     }
 
     // sort product by give field from bigger to smaller
-    @GetMapping("/product/sortBy/{field}")
+    @GetMapping("/products/sortBy/{field}")
     private ResponseEntity<List<Product>> getProductWithSort(@PathVariable String field){
         List<Product> allProducts= productService.findProductWithSorting(field);
 

@@ -31,6 +31,9 @@ public class Product {
     @Column(name="productPrice")
     private int productPrice;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private List<ProductRating> productRating;
+
     @ManyToOne
     @JoinColumn(name="category_id")
     private ProductCategory productCategory;
@@ -38,7 +41,6 @@ public class Product {
     @Column(name = "date_created")
     @CreationTimestamp
     private Date dateCreated;
-
 
     @Column(name = "last_updated")
     @UpdateTimestamp
@@ -51,11 +53,8 @@ public class Product {
     @Column(name = "imageURL")
     private String imageURl;
 
-
-
     @Column(name = "productReference")
     private String productReference;
-
 
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -69,19 +68,17 @@ public class Product {
     )
     private Set<Attachment> productImage;
 
-    public Product(int productId, String productName, String description, int productPrice, ProductCategory productCategory, Date dateCreated, boolean active, Date lastUpdated, int unitsInStock, String imageURl, Boolean displayProduct, String size, String productReference, Set<Attachment> productImage) {
+    public Product(int productId, String productName, String description, int productPrice, List<ProductRating> productRating, ProductCategory productCategory, Date dateCreated, Date lastUpdated, int unitsInStock, String imageURl, String productReference, Set<Attachment> productImage) {
         this.productId = productId;
         this.productName = productName;
         this.description = description;
         this.productPrice = productPrice;
+        this.productRating = productRating;
         this.productCategory = productCategory;
         this.dateCreated = dateCreated;
-
         this.lastUpdated = lastUpdated;
         this.unitsInStock = unitsInStock;
         this.imageURl = imageURl;
-
-
         this.productReference = productReference;
         this.productImage = productImage;
     }
@@ -89,13 +86,18 @@ public class Product {
     public Product() {
     }
 
-
     @JsonBackReference
     public ProductCategory getProductCategory() {
         return productCategory;
     }
 
+    public List<ProductRating> getProductRating() {
+        return productRating;
+    }
 
+    public void setProductRating(List<ProductRating> productRating) {
+        this.productRating = productRating;
+    }
 
 
 
