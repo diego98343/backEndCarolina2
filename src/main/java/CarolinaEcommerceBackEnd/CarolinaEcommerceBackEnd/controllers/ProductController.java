@@ -60,6 +60,15 @@ public class ProductController {
 
     }
 
+    @GetMapping("/products/searchByPrice/{productPrice}")
+    public ResponseEntity<List<Product>>sortByPrice(@PathVariable("productPrice")int productPrice){
+
+        List<Product> productsByPrive = productRepository.findByPrice(productPrice);
+
+        return  new ResponseEntity<List<Product>>(productsByPrive,HttpStatus.OK);
+
+    }
+
     @GetMapping("/products/searchByReference/{productReference}")
     public ResponseEntity<List<Product>>searchProductByReference(@PathVariable("productReference")String productReference){
 
