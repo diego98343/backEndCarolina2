@@ -9,4 +9,6 @@ public interface ProductSearchRepository {
  List<Product> findByName(String productName);
  List<Product> findByCategory(int productCategory );
  List<Product> findByReference(String productReference );
+
+ List<Product> findByPrice(int productPrice);
 }

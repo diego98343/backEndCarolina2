@@ -75,5 +75,24 @@ public class ProductSearchRepositoryImpl implements ProductSearchRepository {
         return query.getResultList();
     }
 
+    @Override
+    public List<Product> findByPrice(int productPrice) {
+
+
+        CriteriaBuilder criteriaBuilder=entityManager.getCriteriaBuilder();
+        CriteriaQuery<Product> criteriaQuery=criteriaBuilder.createQuery(Product.class);
+
+
+        Root<Product> product= criteriaQuery.from(Product.class);
+
+        Predicate productReferencePredicate=criteriaBuilder.equal(product.get("productPrice"),productPrice);
+        criteriaQuery.where(productReferencePredicate);
+
+        TypedQuery<Product> query=entityManager.createQuery(criteriaQuery);
+
+
+        return query.getResultList();
+    }
+
 
 }
