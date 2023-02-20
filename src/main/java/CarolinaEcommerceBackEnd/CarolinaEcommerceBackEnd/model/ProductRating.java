@@ -24,6 +24,9 @@ public class ProductRating {
     @Column(name="comment")
     private String comment;
 
+    @Column(name="quantity")
+    private int quantity;
+
 
 
     public ProductRating() {
