@@ -1,4 +1,4 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutService;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutServices;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.OrderRepository;

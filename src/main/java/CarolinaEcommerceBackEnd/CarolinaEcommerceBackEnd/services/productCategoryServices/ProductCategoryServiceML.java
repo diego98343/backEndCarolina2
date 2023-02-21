@@ -1,4 +1,4 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServiceFile;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServices;
 
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ProductCategory;

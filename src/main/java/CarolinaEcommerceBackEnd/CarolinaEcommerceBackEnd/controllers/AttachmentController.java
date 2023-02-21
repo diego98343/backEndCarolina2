@@ -2,7 +2,7 @@ package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Attachment;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ResponseData;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.fileRepositoryFolder.AttachmentService;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.fileRepositoryServices.AttachmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.List;
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class AttachmentController {

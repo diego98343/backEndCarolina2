@@ -1,4 +1,4 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.RegistrationRespoFile;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.RegistrationServices;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.User;
 

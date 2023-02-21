@@ -3,16 +3,14 @@ package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers.checkOutCo
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Dto.Purchase;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Dto.PurchaseResponse;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Customer;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutService.CheckoutService;
-import org.springframework.beans.factory.annotation.Autowired;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutServices.CheckoutService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class CheckOutController {

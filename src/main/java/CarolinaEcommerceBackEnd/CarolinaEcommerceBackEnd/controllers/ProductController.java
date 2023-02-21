@@ -2,14 +2,11 @@ package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Attachment;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.ProductCategory;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductCustomRepos.ProductSearchRepository;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.ProductRepository;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServiceFile.ProductCategoryService;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServiceFile.ProductService;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productCategoryServices.ProductCategoryService;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServices.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
@@ -27,7 +22,7 @@ import java.util.Set;
 //
 
 
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class ProductController {

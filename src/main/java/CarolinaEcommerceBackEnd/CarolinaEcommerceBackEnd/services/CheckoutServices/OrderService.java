@@ -1,7 +1,6 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutService;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutServices;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -1,9 +1,7 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServiceFile;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.productServices;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Product;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

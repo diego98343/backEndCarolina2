@@ -1,7 +1,7 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.controllers.checkOutControllers;
 
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
-import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutServices.OrderService;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.OrderItem;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutServices.OrderItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +15,19 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
-public class OrderController {
-
+public class OrderItemsController {
 
     @Autowired
-    OrderService orderService;
+    OrderItemsService orderItemsService;
 
 
-    @GetMapping("/orders")
-    public ResponseEntity<List<Order>>getallOrders(){
-        List<Order>allOrders = orderService.getAll();
-        return new ResponseEntity<List<Order>>(allOrders, HttpStatus.OK);
+    @GetMapping("/orderItems")
+    public ResponseEntity<List<OrderItem>>getAllOrderItems(){
+
+      List<OrderItem> orderItems = orderItemsService.getAll();
+
+      return new ResponseEntity<List<OrderItem>>(orderItems, HttpStatus.OK);
     }
+
+
 }

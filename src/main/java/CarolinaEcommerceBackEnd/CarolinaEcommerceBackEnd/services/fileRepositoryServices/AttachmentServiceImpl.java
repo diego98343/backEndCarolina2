@@ -1,4 +1,4 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.fileRepositoryFolder;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.fileRepositoryServices;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Attachment;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.AttachmentRepository;
@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.List;
 import java.util.Objects;
 

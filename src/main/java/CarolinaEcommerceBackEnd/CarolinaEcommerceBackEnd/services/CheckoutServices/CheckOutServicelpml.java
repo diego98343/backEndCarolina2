@@ -1,4 +1,4 @@
-package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutService;
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.services.CheckoutServices;
 
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Dto.Purchase;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.Dto.PurchaseResponse;
@@ -6,7 +6,6 @@ import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Customer
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Order;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.OrderItem;
 import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
