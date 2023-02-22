@@ -22,13 +22,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String orderTrackingNumber;
-
     private int totalQuantity;
-
     private BigDecimal totalPrice;
-
     private String status;
     @CreationTimestamp
     private Date dateCreated;
