@@ -40,7 +40,6 @@ public class Order {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shipping_address_id",referencedColumnName = "id")
-
     private Address shippingAddress;
 
     @OneToOne(cascade = CascadeType.ALL)

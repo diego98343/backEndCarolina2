@@ -1,0 +1,8 @@
+package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository;
+
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut.Address;
+import CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.repository.OrderAddressCustomRepository.OrderAddressCustomRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AddressRepository extends JpaRepository<Address,Integer>,OrderAddressCustomRepository {
+}
