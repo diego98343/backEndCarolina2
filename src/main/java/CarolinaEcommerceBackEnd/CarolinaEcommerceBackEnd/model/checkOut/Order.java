@@ -1,10 +1,6 @@
 package CarolinaEcommerceBackEnd.CarolinaEcommerceBackEnd.model.checkOut;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import net.minidev.json.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -88,7 +84,7 @@ public class Order {
     public void setShippingAddress(Address shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
-
+    @JsonIgnore
     public Address getBillingAddress() {
         return billingAddress;
     }
