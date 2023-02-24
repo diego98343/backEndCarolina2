@@ -23,6 +23,7 @@ public class Order {
     private BigDecimal totalPrice;
     private String status;
     @CreationTimestamp
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date dateCreated;
     @UpdateTimestamp
     private Date lastUpdated;

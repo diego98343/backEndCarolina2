@@ -33,4 +33,26 @@ public class CustomerCustomRepositoryImpl implements CustomerCustomRepository {
         return query.getResultList();
 
     }
+
+    @Override
+    public List<Customer> getCustomerById(int id) {
+
+        CriteriaBuilder criteriaBuilder=entityManager.getCriteriaBuilder();
+        CriteriaQuery<Customer> criteriaQuery=criteriaBuilder.createQuery(Customer.class);
+
+
+        Root<Customer> customer= criteriaQuery.from(Customer.class);
+
+        Predicate customerPredicate=criteriaBuilder.equal(customer.get("id"),id);
+        criteriaQuery.where(customerPredicate);
+
+        TypedQuery<Customer> query=entityManager.createQuery(criteriaQuery);
+
+        return query.getResultList();
+
+
+
+
+
+    }
 }

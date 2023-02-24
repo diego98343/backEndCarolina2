@@ -8,5 +8,6 @@ public interface CustomerCustomRepository {
 
 
     List<Customer> getCustomerByEmail(String email);
+    List<Customer> getCustomerById(int id);
 
 }
